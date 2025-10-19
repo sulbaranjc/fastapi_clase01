@@ -35,7 +35,7 @@ def get_posts():
 @app.post('/posts/create')
 def create_post(post:Post):
     post.id = str(uuid())
-    posts.append(post.dict())
+    posts.append(post.model_dump())
     return {'message':'Post creado satisfactoriamente'}
 
 @app.get('/posts/{post_id}')
@@ -57,6 +57,6 @@ def delete_post(post_id:str):
 def update_post(post_id:str, updatedPost:PostUpdate):
     for post in posts:
         if post['id'] == post_id:
-            post.update(updatedPost.dict())
+            post.update(post.model_dump())
             return {'message':'Post actualizado correctamente'}
     raise HTTPException(status_code=404, detail='Post no encontrado')
