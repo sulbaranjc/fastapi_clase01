@@ -74,7 +74,7 @@ def read_root():
     Returns:
         dict: Mensaje de bienvenida en formato JSON
     """
-    return {'Welcome': 'Bienvenido a mi Blog'}
+    return {'Welcome': 'Bienvenido a mi Clase de FastAPI'}
 
 # OBTENER TODOS LOS POSTS - GET /posts
 # ============================================================================
