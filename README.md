@@ -1,4 +1,6 @@
 # 📚 FastAPI - Ejemplo Básico para Estudiantes
+# 📚 Fuente - [Ejemplo Básico para Estudiantes](https://www.youtube.com/watch?v=ZcfcWQafkjw&t=1656s)
+
 
 ## 🎯 Descripción del Proyecto
 
