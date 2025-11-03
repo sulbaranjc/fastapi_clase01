@@ -1,0 +1,715 @@
+# Recolector de fuentes
+
+- Fecha de generación: 2025-11-03 12:00:30
+- Raíz: `/home/sulbaranjc/proyectos/python/backend/fastapi/api/fastapi_clase01`
+- Archivo de salida: `repositorio.txt` (chunk 1/1)
+
+## Árbol de archivos incluidos
+
+```text
+
+```
+
+## Índice global (archivo → chunk)
+
+- [001] .gitignore
+- [001] main.py
+- [001] README.md
+- [001] requirements.txt
+
+## Archivos omitidos (razones)
+
+_No se omitieron archivos._
+
+---
+
+README.md
+-----
+```markdown
+# 📚 FastAPI - Ejemplo Básico para Estudiantes
+# 📚 Fuente - [Ejemplo Básico para Estudiantes](https://www.youtube.com/watch?v=ZcfcWQafkjw&t=1656s)
+
+
+## 🎯 Descripción del Proyecto
+
+Este proyecto es un **ejemplo didáctico** para aprender a desarrollar APIs REST con **FastAPI**, uno de los frameworks más modernos y eficientes de Python. 
+
+La aplicación implementa un **blog básico** con operaciones CRUD (Create, Read, Update, Delete) para gestionar posts, demostrando los conceptos fundamentales del desarrollo de APIs.
+
+## 🚀 ¿Qué es FastAPI?
+
+**FastAPI** es un framework web moderno y rápido para construir APIs con Python basado en las anotaciones de tipos estándar de Python. Sus principales características son:
+
+- ⚡ **Muy rápido**: Uno de los frameworks más rápidos disponibles
+- 📖 **Documentación automática**: Genera documentación interactiva automáticamente
+- 🔍 **Validación automática**: Valida datos usando Pydantic
+- 🐍 **Moderno**: Aprovecha las características más recientes de Python
+- 🛡️ **Seguro**: Incluye características de seguridad por defecto
+
+## 🛠️ Instalación y Configuración
+
+### Prerrequisitos
+- Python 3.7+ instalado en tu sistema
+- pip (gestor de paquetes de Python)
+
+### 1. Clonar o descargar el proyecto
+```bash
+# Si tienes Git instalado
+git clone https://github.com/sulbaranjc/fastapi_clase01.git
+cd fastapi_clase01
+
+# O simplemente descarga los archivos del proyecto
+```
+
+### 2. Crear un entorno virtual (recomendado)
+```bash
+# Windows
+python -m venv venv
+venv\Scripts\activate
+
+# macOS/Linux
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 3. Instalar las dependencias
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Ejecutar la aplicación
+```bash
+uvicorn main:app --reload
+```
+
+¡Listo! Tu API estará disponible en: **http://localhost:8000**
+
+## 📋 Estructura del Proyecto
+
+```
+fastapi/
+│
+├── main.py              # Archivo principal con la lógica de la API
+├── requirements.txt     # Dependencias del proyecto
+├── README.md           # Este archivo
+└── __pycache__/        # Cache de Python (generado automáticamente)
+```
+
+## 🌐 Endpoints Disponibles
+
+### 📖 Documentación Interactiva
+- **Swagger UI**: http://localhost:8000/docs
+- **ReDoc**: http://localhost:8000/redoc
+
+### 🔗 Rutas de la API
+
+| Método | Ruta | Descripción | Ejemplo |
+|--------|------|-------------|---------|
+| `GET` | `/` | Mensaje de bienvenida | `http://localhost:8000/` |
+| `GET` | `/posts` | Obtener todos los posts | `http://localhost:8000/posts` |
+| `POST` | `/posts/create` | Crear un nuevo post | `http://localhost:8000/posts/create` |
+| `GET` | `/posts/{post_id}` | Obtener post por ID | `http://localhost:8000/posts/abc-123` |
+| `PUT` | `/posts/update/{post_id}` | Actualizar un post | `http://localhost:8000/posts/update/abc-123` |
+| `DELETE` | `/posts/delete/{post_id}` | Eliminar un post | `http://localhost:8000/posts/delete/abc-123` |
+
+## 📝 Ejemplos de Uso
+
+### 1. Crear un nuevo post
+```bash
+# Usando curl
+curl -X POST "http://localhost:8000/posts/create" \
+     -H "Content-Type: application/json" \
+     -d '{
+       "title": "Mi primer post",
+       "author": "Estudiante ILERNA",
+       "content": "Este es mi primer post usando FastAPI. ¡Está genial!"
+     }'
+```
+
+### 2. Obtener todos los posts
+```bash
+curl -X GET "http://localhost:8000/posts"
+```
+
+### 3. Obtener un post específico
+```bash
+curl -X GET "http://localhost:8000/posts/{post_id}"
+```
+
+### 4. Actualizar un post
+```bash
+curl -X PUT "http://localhost:8000/posts/update/{post_id}" \
+     -H "Content-Type: application/json" \
+     -d '{
+       "title": "Título actualizado",
+       "author": "Autor actualizado",
+       "content": "Contenido actualizado del post"
+     }'
+```
+
+### 5. Eliminar un post
+```bash
+curl -X DELETE "http://localhost:8000/posts/delete/{post_id}"
+```
+
+## 🎓 Conceptos Aprendidos
+
+### 🔧 Tecnologías Utilizadas
+- **FastAPI**: Framework principal para crear la API
+- **Pydantic**: Validación y serialización de datos
+- **Uvicorn**: Servidor ASGI para ejecutar la aplicación
+- **Python Type Hints**: Anotaciones de tipos para mejor código
+
+### 📚 Conceptos de APIs REST
+- **Métodos HTTP**: GET, POST, PUT, DELETE
+- **Códigos de estado**: 200 (OK), 404 (Not Found), 422 (Validation Error)
+- **Rutas parametrizadas**: `/posts/{post_id}`
+- **Validación de datos**: Automática con Pydantic
+- **Serialización JSON**: Conversión automática de objetos Python
+
+### 🏗️ Patrones de Diseño
+- **Modelos de datos**: Separación entre `Post` y `PostUpdate`
+- **Manejo de errores**: Uso de `HTTPException`
+- **Documentación**: Docstrings y comentarios explicativos
+
+## 🚨 Importante para Estudiantes
+
+### ⚠️ Limitaciones de este ejemplo
+- **Base de datos en memoria**: Los datos se pierden al reiniciar la aplicación
+- **Sin persistencia**: En un proyecto real usarías PostgreSQL, MySQL, etc.
+- **Sin autenticación**: No hay sistema de usuarios o permisos
+- **Sin validaciones avanzadas**: Ejemplo básico para aprendizaje
+
+### 🎯 Próximos pasos sugeridos
+1. Agregar una base de datos real (SQLAlchemy + PostgreSQL)
+2. Implementar autenticación y autorización
+3. Agregar más validaciones a los modelos
+4. Implementar paginación para los posts
+5. Agregar pruebas unitarias
+6. Desplegar en la nube (Heroku, Railway, etc.)
+
+## 🛠️ Dependencias del Proyecto
+
+```
+fastapi==0.104.1        # Framework principal
+uvicorn[standard]==0.24.0  # Servidor ASGI
+pydantic==2.5.0         # Validación de datos
+```
+
+## 🐛 Solución de Problemas Comunes
+
+### Error: "ModuleNotFoundError"
+```bash
+# Asegúrate de haber instalado las dependencias
+pip install -r requirements.txt
+```
+
+### Error: "Port already in use"
+```bash
+# Cambia el puerto si el 8000 está ocupado
+uvicorn main:app --reload --port 8001
+```
+
+### La aplicación no recarga automáticamente
+```bash
+# Asegúrate de usar la opción --reload
+uvicorn main:app --reload
+```
+
+## 📞 Soporte y Contacto
+
+- **Profesor**: Juan Carlos Sulbarán
+- **Institución**: ILERNA
+- **Curso**: CMO Programación en Python 2025-2026
+
+## 📄 Licencia
+
+Este proyecto es con fines educativos para los estudiantes de ILERNA.
+
+---
+
+### 🎉 ¡Felicitaciones!
+
+Si has llegado hasta aquí y has logrado ejecutar la aplicación, ¡has dado tus primeros pasos en el desarrollo de APIs con FastAPI! 
+
+**Continúa practicando y experimentando con el código.** 🚀
+
+---
+
+**Desarrollado con ❤️ para los estudiantes de ILERNA**
+```
+
+requirements.txt
+-----
+```
+annotated-types==0.7.0
+anyio==4.6.0
+black==25.9.0
+click==8.1.7
+fastapi==0.115.0
+h11==0.14.0
+idna==3.10
+mypy_extensions==1.1.0
+packaging==25.0
+pathspec==0.12.1
+platformdirs==4.5.0
+pydantic==2.9.2
+pydantic_core==2.23.4
+pytokens==0.2.0
+sniffio==1.3.1
+starlette==0.38.6
+typing_extensions==4.12.2
+uvicorn==0.30.6
+
+```
+
+main.py
+-----
+```python
+# ============================================================================
+# EJEMPLO BÁSICO DE API REST CON FASTAPI
+# ============================================================================
+# Este archivo demuestra cómo crear una API REST básica para un blog
+# utilizando FastAPI, uno de los frameworks más populares de Python
+
+# IMPORTACIONES NECESARIAS
+# ============================================================================
+
+# FastAPI: Framework principal para crear APIs REST modernas y rápidas
+# HTTPException: Para manejar errores HTTP de manera elegante
+from fastapi import FastAPI, HTTPException
+
+# BaseModel: Clase base de Pydantic para crear modelos de datos con validación automática
+from pydantic import BaseModel
+
+# Para trabajar con fechas y timestamps
+from datetime import datetime
+
+# Para generar identificadores únicos (UUID) para nuestros posts
+from uuid import uuid4 as uuid
+
+# Tipos de datos especiales para hacer el código más legible y seguro
+from typing import Optional, Text
+
+# INICIALIZACIÓN DE LA APLICACIÓN FASTAPI
+# ============================================================================
+# Creamos la instancia principal de nuestra aplicación
+# FastAPI() crea automáticamente documentación interactiva en /docs
+app = FastAPI()
+
+# BASE DE DATOS EN MEMORIA (SIMULADA)
+# ============================================================================
+# En un proyecto real, esto sería una base de datos como PostgreSQL, MySQL, etc.
+# Para este ejemplo didáctico, usamos una lista simple en memoria
+posts = []
+
+# MODELOS DE DATOS (SCHEMAS)
+# ============================================================================
+# Los modelos definen la estructura de los datos que acepta nuestra API
+# Pydantic se encarga automáticamente de validar que los datos cumplan estas reglas
+
+
+# Modelo principal para crear y representar un post del blog
+class Post(BaseModel):
+    id: Optional[str]  # ID único, se genera automáticamente, por eso es opcional
+    title: str  # Título del post (obligatorio)
+    author: str  # Autor del post (obligatorio)
+    content: Text  # Contenido del post (texto largo, obligatorio)
+    created_at: datetime = datetime.now()  # Fecha de creación (automática)
+    published_at: Optional[datetime] = None  # Fecha de publicación (opcional)
+    published: bool = False  # Estado de publicación (por defecto no publicado)
+
+
+# Modelo específico para actualizaciones
+# Separamos este modelo para tener más control sobre qué campos se pueden actualizar
+class PostUpdate(BaseModel):
+    title: str
+    author: str
+    content: Text
+    created_at: datetime = datetime.now()
+
+
+# ENDPOINTS DE LA API (RUTAS)
+# ============================================================================
+# Los endpoints definen las URLs y métodos HTTP que acepta nuestra API
+
+
+# ENDPOINT RAÍZ - GET /
+# ============================================================================
+# Decorador @app.get: Define una ruta que responde a peticiones GET
+# El '/' indica que es la ruta raíz de nuestra API (ejemplo: http://localhost:8000/)
+@app.get("/")
+def read_root():
+    """
+    Endpoint de bienvenida - Punto de entrada principal de la API
+
+    Returns:
+        dict: Mensaje de bienvenida en formato JSON
+    """
+    return {"Welcome": "Bienvenido a mi Clase de FastAPI"}
+
+
+# OBTENER TODOS LOS POSTS - GET /posts
+# ============================================================================
+@app.get("/posts")
+def get_posts():
+    """
+    Obtiene todos los posts del blog
+
+    Returns:
+        list: Lista con todos los posts almacenados en memoria
+
+    Ejemplo de uso:
+        GET http://localhost:8000/posts
+    """
+    return posts
+
+
+# CREAR NUEVO POST - POST /posts/create
+# ============================================================================
+@app.post("/posts/create")
+def create_post(post: Post):
+    """
+        Crea un nuevo post en el blog
+
+        Args:
+            post (Post): Objeto Post con los datos del nuevo post
+                        FastAPI automáticamente valida que los datos cumplan el modelo
+
+        Returns:
+            dict: Mensaje de confirmación
+
+        Ejemplo de uso:
+            POST http://localhost:8000/posts/create
+            Body (JSON):
+    {
+      "id": "art-20251102-001",
+      "title": "Cómo crear un monolito Python con FastAPI y Jinja2 paso a paso",
+      "author": "Juan Carlos Sulbarán González",
+      "content": "En este artículo exploraremos cómo montar un monolito web en Python utilizando FastAPI y Jinja2. Veremos cómo estructurar las carpetas, crear rutas GET y POST, validar formularios tanto en el frontend como en el backend, y finalmente desplegar el proyecto en un entorno local con Uvicorn. Este enfoque didáctico está pensado para estudiantes de FP en Desarrollo de Aplicaciones Web y Multiplataforma.",
+      "created_at": "2025-11-02T21:39:47.784832",
+      "published_at": "2025-11-02T22:00:00.000Z",
+      "published": true
+    }
+    """
+    # Generamos un ID único para el post
+    post.id = str(uuid())
+
+    # Convertimos el objeto Pydantic a diccionario y lo agregamos a nuestra "base de datos"
+    posts.append(post.model_dump())
+
+    return {"message": "Post creado satisfactoriamente"}
+
+
+# OBTENER POST POR ID - GET /posts/{post_id}
+# ============================================================================
+@app.get("/posts/{post_id}")
+def get_post_by_id(post_id: str):
+    """
+    Obtiene un post específico por su ID único
+
+    Args:
+        post_id (str): ID único del post que queremos obtener
+                      Se extrae automáticamente de la URL
+
+    Returns:
+        dict: Los datos del post encontrado
+
+    Raises:
+        HTTPException: Error 404 si el post no existe
+
+    Ejemplo de uso:
+        GET http://localhost:8000/posts/abc-123-def-456
+    """
+    # Buscamos el post en nuestra lista
+    for post in posts:
+        if post["id"] == post_id:
+            return post
+
+    # Si no encontramos el post, lanzamos una excepción HTTP 404
+    raise HTTPException(status_code=404, detail="Post no encontrado")
+
+
+# ELIMINAR POST - DELETE /posts/delete/{post_id}
+# ============================================================================
+@app.delete("/posts/delete/{post_id}")
+def delete_post(post_id: str):
+    """
+    Elimina un post específico por su ID
+
+    Args:
+        post_id (str): ID único del post que queremos eliminar
+
+    Returns:
+        dict: Mensaje de confirmación de eliminación
+
+    Raises:
+        HTTPException: Error 404 si el post no existe
+
+    Ejemplo de uso:
+        DELETE http://localhost:8000/posts/delete/abc-123-def-456
+    """
+    # enumerate() nos da tanto el índice como el valor en cada iteración
+    for index, post in enumerate(posts):
+        if post["id"] == post_id:
+            # pop() elimina el elemento en la posición indicada
+            posts.pop(index)
+            return {"message": "Post eliminado correctamente"}
+
+    # Si llegamos aquí, el post no fue encontrado
+    raise HTTPException(status_code=404, detail="Post no encontrado")
+
+
+# ACTUALIZAR POST - PUT /posts/update/{post_id}
+# ============================================================================
+@app.put("/posts/update/{post_id}")
+def update_post(post_id: str, updatedPost: PostUpdate):
+    """
+    Actualiza un post existente con nuevos datos
+
+    Args:
+        post_id (str): ID único del post que queremos actualizar
+        updatedPost (PostUpdate): Nuevos datos para el post
+                                 FastAPI valida automáticamente este objeto
+
+    Returns:
+        dict: Mensaje de confirmación de actualización
+
+    Raises:
+        HTTPException: Error 404 si el post no existe
+
+    Ejemplo de uso:
+        PUT http://localhost:8000/posts/update/abc-123-def-456
+        Body (JSON):
+        {
+            "title": "Título actualizado",
+            "author": "Autor actualizado",
+            "content": "Contenido actualizado..."
+        }
+    """
+    # Buscamos el post que queremos actualizar
+    for post in posts:
+        if post["id"] == post_id:
+            # update() fusiona los nuevos datos con los existentes
+            # model_dump() convierte el objeto Pydantic a diccionario
+            post.update(updatedPost.model_dump())
+            return {"message": "Post actualizado correctamente"}
+
+    # Si el post no existe, lanzamos error 404
+    raise HTTPException(status_code=404, detail="Post no encontrado")
+
+
+# ============================================================================
+# NOTAS IMPORTANTES PARA ESTUDIANTES:
+# ============================================================================
+#
+# 1. MÉTODOS HTTP utilizados:
+#    - GET: Para obtener datos (lectura)
+#    - POST: Para crear nuevos recursos
+#    - PUT: Para actualizar recursos existentes
+#    - DELETE: Para eliminar recursos
+#
+# 2. CÓDIGOS DE ESTADO HTTP:
+#    - 200: OK (operación exitosa)
+#    - 404: Not Found (recurso no encontrado)
+#    - 422: Unprocessable Entity (datos inválidos - automático con Pydantic)
+#
+# 3. VALIDACIÓN AUTOMÁTICA:
+#    FastAPI + Pydantic validan automáticamente los datos de entrada
+#    Si los datos no cumplen el modelo, se devuelve error 422
+#
+# 4. DOCUMENTACIÓN AUTOMÁTICA:
+#    Visita http://localhost:8000/docs para ver la documentación interactiva
+#    También disponible en formato ReDoc en http://localhost:8000/redoc
+#
+# 5. PARA EJECUTAR ESTA API:
+#    uvicorn main:app --reload
+#    Esto iniciará el servidor en http://localhost:8000
+#
+# ============================================================================
+
+```
+
+.gitignore
+-----
+```
+# Created by https://www.toptal.com/developers/gitignore/api/python
+# Edit at https://www.toptal.com/developers/gitignore?templates=python
+
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+#   For a library or package, you might want to ignore these files since the code is
+#   intended to run in multiple environments; otherwise, check them in:
+# .python-version
+
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+#   install all needed dependencies.
+#Pipfile.lock
+
+# poetry
+#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
+#   This is especially recommended for binary packages to ensure reproducibility, and is more
+#   commonly ignored for libraries.
+#   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
+#poetry.lock
+
+# pdm
+#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
+#pdm.lock
+#   pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
+#   in version control.
+#   https://pdm.fming.dev/#use-with-ide
+.pdm.toml
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# PyCharm
+#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
+#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
+#  and can be added to the global gitignore or merged into this file.  For a more nuclear
+#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
+#.idea/
+
+### Python Patch ###
+# Poetry local configuration file - https://python-poetry.org/docs/configuration/#local-configuration
+poetry.toml
+
+# ruff
+.ruff_cache/
+
+# LSP config files
+pyrightconfig.json
+
+# End of https://www.toptal.com/developers/gitignore/api/python
+.vscode
+
+```
+
